@@ -1,9 +1,16 @@
 <?php
 define('BASE_URL',"/projet_fin_script_serveur");
-echo $_SERVER['SCRIPT_NAME'];
-function creerElement($href, $nomPage)
+
+function tablematiere()
 {
-    
+    $pages = [
+        BASE_URL . "/index.php" => "Accueil",
+        BASE_URL . "/contact.php" => "Contact",
+    ];
+    foreach ($pages as $page => $label){
+        $class = ($_SERVER['REQUEST_URI'] == $page) ?'active' : '';
+        echo '<li><a href="' . $page .'" class="' . $class . '">' . $label . '</a></li>';
+    }
 }
 ?>
 
@@ -15,14 +22,14 @@ function creerElement($href, $nomPage)
     <meta name="description" content="<?=$metaDesc?>">
     <link rel="stylesheet" href="<?= BASE_URL ?> /assets/style.css">
     <link rel="stylesheet" href="<?= BASE_URL ?> /assets/styleform.css">
-    <title>Document</title>
+    <link rel="icon" type="image/svg+xml" href="images/Winga.jpg" />
+    <title>Mon Premier modèle Dynamique</title>
 </head>
 <body>
 <header>
         <nav>
             <ul>
-                <li><a href="<?= BASE_URL ?> /index.php"></a>Accueil</li>
-                <li><a href="<?= BASE_URL ?> /contact.php"></a>Contact</li>
+                <?= tablematiere() ?>
             </ul>
         </nav>
     </header>

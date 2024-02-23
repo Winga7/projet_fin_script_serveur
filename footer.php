@@ -1,3 +1,3 @@
-<footer>Mon pied de page</footer>
+<footer>© Mon Premier Modèle de Page Dynamique</footer>
 </body>
 </html>
