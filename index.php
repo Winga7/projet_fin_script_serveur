@@ -1,6 +1,6 @@
     <?php
     $metaDesc = "Page Accueil";
-    require_once __DIR__ . DIRECTORY_SEPARATOR . "header.php";
+    require __DIR__ . DIRECTORY_SEPARATOR . "header.php";
     ?>
 
     <main>
@@ -8,5 +8,5 @@
     </main>
 
     <?php
-    require_once __DIR__ . DIRECTORY_SEPARATOR . "footer.php";
+    require __DIR__ . DIRECTORY_SEPARATOR . "footer.php";
     ?>
