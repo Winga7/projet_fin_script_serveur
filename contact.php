@@ -5,7 +5,7 @@
     
     <main>
         <h1>Contact</h1>
-        <form action="contact.php" method="post" id="contactSS">
+        <form action="contact.php" method="post" id="contact">
                 <fieldset>
                     <legend>Vos Coordonnées</legend>
                     <div class="coordonnees">
