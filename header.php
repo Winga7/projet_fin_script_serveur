@@ -1,7 +1,7 @@
 <?php
 define('BASE_URL',"/projet_fin_script_serveur");
 
-function tablematiere()
+function Navigationint()
 {
     $pages = [
         BASE_URL . "/index.php" => "Accueil",
@@ -29,7 +29,7 @@ function tablematiere()
 <header>
         <nav>
             <ul>
-                <?= tablematiere() ?>
+                <?= Navigationint() ?>
             </ul>
         </nav>
     </header>
