@@ -5,7 +5,7 @@ function tablematiere()
 {
     $pages = [
         BASE_URL . "/index.php" => "Accueil",
-        BASE_URL . "/contact.php" => "Contact",
+        BASE_URL . "./contact.php" => "Contact",
     ];
     foreach ($pages as $page => $label){
         $class = ($_SERVER['REQUEST_URI'] == $page) ?'active' : '';
