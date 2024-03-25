@@ -11,19 +11,19 @@
                     <div class="coordonnees">
                         <div class="champs">
                             <label for="name">Nom :</label>
-                            <input type="text" id="name" />
+                            <input type="text" id="name" name="name" required />
                         </div>
                         <div class="champs">
                             <label for="prenom">Prénom :</label>
-                            <input type="text" id="prenom" />
+                            <input type="text" id="prenom" name="prenom" required />
                         </div>
                         <div class="champs">
                             <label for="tel">Téléphone :</label>
-                            <input type="tel" id="tel" />
+                            <input type="tel" id="tel" name="tel" required/>
                         </div>
                         <div class="champs">
                             <label for="mail">Mail :</label>
-                            <input type="mail" id="mail" />
+                            <input type="mail" id="mail" name="mail" required />
                         </div>
                     </div>
                 </fieldset>
@@ -34,8 +34,10 @@
                         id="question"
                         cols="30"
                         rows="10"
+                        required
                     ></textarea>
                 </fieldset>
+                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>" />
                 <button type="submit">Envoyer</button>
             </form>
     </main>
