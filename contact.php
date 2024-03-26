@@ -6,31 +6,31 @@
     
     <main>
         <h1>Contact</h1>
-        <form action="contact.php" method="post" id="contact">
+        <form action="" method="POST" id="contact">
                 <fieldset>
                     <legend>Vos Coordonnées</legend>
                     <div class="coordonnees">
                         <div class="champs">
                             <label for="name">Nom :</label>
-                            <input type="text" id="name" name="name" required />
+                            <input class="champs" type="text" id="name" name="name" required />
                         </div>
                         <div class="champs">
                             <label for="prenom">Prénom :</label>
-                            <input type="text" id="prenom" name="prenom" required />
+                            <input class="champs" type="text" id="prenom" name="prenom" required />
                         </div>
                         <div class="champs">
                             <label for="tel">Téléphone :</label>
-                            <input type="tel" id="tel" name="tel" required/>
+                            <input class="champs" type="tel" id="tel" name="tel" required/>
                         </div>
                         <div class="champs">
                             <label for="mail">Mail :</label>
-                            <input type="mail" id="mail" name="mail" required />
+                            <input class="champs" type="mail" id="mail" name="mail" required />
                         </div>
                     </div>
                 </fieldset>
-                <fieldset>
+                <fieldset class="textarea">
                     <legend>Votre question</legend>
-                    <textarea
+                    <textarea 
                         name="question"
                         id="question"
                         cols="30"
@@ -38,7 +38,6 @@
                         required
                     ></textarea>
                 </fieldset>
-                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>" />
                 <button type="submit">Envoyer</button>
             </form>
     </main>

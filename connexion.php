@@ -81,3 +81,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "header.php";
             </fieldset>
         </form> -->
 </main>
+
+<?php
+    require __DIR__ . DIRECTORY_SEPARATOR . "footer.php";
+    ?>
