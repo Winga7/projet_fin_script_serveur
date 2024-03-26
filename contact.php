@@ -1,6 +1,7 @@
 <?php
     $metaDesc = "Contact";
     require_once __DIR__ . DIRECTORY_SEPARATOR . "header.php";
+    require_once __DIR__ . DIRECTORY_SEPARATOR . "formulaire.php";
     ?>
     
     <main>

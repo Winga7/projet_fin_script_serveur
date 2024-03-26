@@ -1,6 +1,5 @@
 <?php
 require_once 'csrf.php';
-require_once 'contact.php';
 
 // Générer le jeton CSRF
 generate_csrf_token();
