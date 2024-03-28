@@ -7,7 +7,7 @@
     <main>
         <h1>Contact</h1>
         <form action="" method="POST" id="contact">
-        <input type="hidden" name="formContact" value="formContact">
+        <!-- <input type="hidden" name="formContact" value="formContact"> -->
                 <fieldset>
                     <legend>Vos Coordonnées</legend>
                     <div class="coordonnees">

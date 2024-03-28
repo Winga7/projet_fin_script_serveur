@@ -1,51 +1,58 @@
 <?php
 
-if ($_SERVER["REQUEST_METHOD"] == "POST")
-{
-    $formNom = $_POST[formContact] ?? null;
+// if ($_SERVER["REQUEST_METHOD"] == "POST")
+// {
+//     $formNom = $_POST[formContact];
 
-    if ($formNom === "formConnexion")
-    {
-        echo "Traitement du formulaire de connexion";
-    }
-    else if ($formNom === "formCodeValidation")
-    {
-        echo "Traitement du formulaire pour le code de validation..."
-    ;
-    }
-    else
-    {
-        echo "Il s'agit d'un formulaire sans nom..."
-    }
-}
+//     if ($formNom === "formConnexion")
+//     {
+//         echo "Traitement du formulaire de connexion";
+//     }
+//     else if ($formNom === "formCodeValidation")
+//     {
+//         echo "Traitement du formulaire pour le code de validation..."
+//     ;
+//     }
+//     else
+//     {
+//         echo "Il s'agit d'un formulaire sans nom..."
+//     }
+// }
 
 function traitementContact(){
-    $prerquis = [
+    $prerequis = [
         "nom" => [
             "required" => true,
-            "max" => 40,
-            "min" => 2
+            "maxLenght" => 40,
+            "minLenght" => 2
         ],
         "prenom" => [
             "required" => true,
-            "max" => 20,
-            "min" => 2
+            "maxLenght" => 20,
+            "minLenght" => 2
         ],
         "tel" => [
             "required" => true,
-            "max" => 12,
-            "min" => 10 
+            "maxLenght" => 12,
+            "minLenght" => 10 
         ],
         "mail" => [
             "required" => true,
-            "max" => 40,
-            "min" => 5
+            'type' => 'email'
         ],
         "question" => [
             "required" => true,
-            "max" => 500,
-            "min" => 10
+            "maxLenght" => 500,
+            "minLenght" => 10
         ]
         ];
 }
+
+function secuJs($donnee){
+    $donnee = $_POST[$donnee];
+    $donneeEchappee = htmlspecialchars($donnee);
+    echo $donneeEchappee;
+}
+
+
 ?>
