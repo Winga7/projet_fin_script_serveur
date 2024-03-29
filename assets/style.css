@@ -30,7 +30,7 @@ header li a {
 }
 header li a:hover,
 header li a:focus {
-	color: lime;
+	color: #0087ff;
 }
 header li a:active {
 	color: red;
