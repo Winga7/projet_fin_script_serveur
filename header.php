@@ -21,8 +21,8 @@ function Navigationint()
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?=$metaDesc?>">
-    <link rel="stylesheet" href="<?= BASE_URL ?> /assets/CSS/style.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?> /assets/CSS/styleform.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?> /public/assets/CSS/style.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?> /public/assets/CSS/styleform.css">
     <link rel="icon" type="image/svg+xml" href="public/images/Winga.jpg" />
     <title>Mon Premier modèle Dynamique</title>
 </head>

@@ -4,11 +4,12 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	color: white;
 }
 header {
 	display: flex;
 	justify-content: center;
-	position: fixed;
+	/* position: fixed; */
 	top: 0;
 	left: 0;
 	align-items: center;
@@ -83,6 +84,7 @@ textarea {
 	resize: both;
 	max-width: 800px;
 	max-height: 400px;
+	font-size: 1.5em;
 }
 button {
 	padding: 0.51em;
