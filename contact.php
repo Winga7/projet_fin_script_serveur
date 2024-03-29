@@ -5,20 +5,30 @@
     ?>
     
     <main>
-        <h1>Contact</h1>
+
         <form action="" method="POST" id="contact">
         <!-- <input type="hidden" name="formContact" value="formContact"> -->
                 <fieldset>
                     <legend>Vos Coordonnées</legend>
                     <div class="coordonnees">
                         <div class="champs">
-                            <label for="name">Nom :</label>
-                            <input class="champs" type="text" id="name" name="name" placeholder="Ex : Dupuis*" required />
+                            <label for="nom">Nom :</label>
+                            <input class="champs" type="text" id="nom" name="nom" placeholder="Ex : Dupuis*" required />
                         </div>
+                        <?php
+                            if(isset($errors["nom"])){
+                                echo "<div class='erreur'>".$errors["nom"]."</div>";
+                            }
+                        ?>
                         <div class="champs">
                             <label for="prenom">Prénom :</label>
-                            <input class="champs" type="text" id="prenom" name="prenom" placeholder="Ex : Jean*" required />
+                            <input class="champs" type="text" id="prenom" name="prenom" placeholder="Ex : Jean*" />
                         </div>
+                        <?php
+                            if(isset($errors["prenom"])){
+                                echo "<div class='erreur'>".$errors["prenom"]."</div>";
+                            }
+                        ?>
                         <div class="champs">
                             <label for="tel">Téléphone :</label>
                             <input class="champs" type="tel" id="tel" name="tel" placeholder="0475 65 65 65*" required/>

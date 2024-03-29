@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900");
+@import url("https://fonts.googleapis.com/css?family=Poppins:400");
 #connexion {
 	font-family: "Poppins", sans-serif;
-	font-weight: 300;
+	font-weight: 400;
 	line-height: 1.7;
 	color: #ffeba7;
 	background-color: #1f2029;

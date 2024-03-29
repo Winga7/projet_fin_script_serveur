@@ -5,8 +5,8 @@ function Navigationint()
 {
     $pages = [
         BASE_URL . "/index.php" => "Accueil",
-        BASE_URL . "./contact.php" => "Contact",
-        BASE_URL . "./connexion.php" => "Connexion",
+        BASE_URL . "/contact.php" => "Contact",
+        BASE_URL . "/connexion.php" => "Connexion",
     ];
     foreach ($pages as $page => $label){
         $class = ($_SERVER['REQUEST_URI'] == $page) ?'active' : '';
