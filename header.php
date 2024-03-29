@@ -23,7 +23,7 @@ function Navigationint()
     <meta name="description" content="<?=$metaDesc?>">
     <link rel="stylesheet" href="<?= BASE_URL ?> /assets/style.css">
     <link rel="stylesheet" href="<?= BASE_URL ?> /assets/styleform.css">
-    <link rel="icon" type="image/svg+xml" href="images/Winga.jpg" />
+    <link rel="icon" type="image/svg+xml" href="public/images/Winga.jpg" />
     <title>Mon Premier modèle Dynamique</title>
 </head>
 <body>
