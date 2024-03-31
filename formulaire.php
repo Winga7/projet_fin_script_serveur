@@ -16,11 +16,11 @@ function champsNettoyer($valeur){
 //   return $input;
 // }
 function verifLongueur($valeur, $min, $max){
-    if(strlen($valeur)<$min){
-        return " Minimum ".$min." caractères";
-    }elseif(strlen($valeur)>$max){
-        return "Maximum ".$max." caractères";
-    }
+  if(strlen($valeur)<$min){
+    return " Minimum ".$min." caractères";
+  }elseif(strlen($valeur)>$max){
+    return "Maximum ".$max." caractères";
+  }
 }
 
 function champvide($valeur){
