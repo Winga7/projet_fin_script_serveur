@@ -1,11 +1,12 @@
 <?php
     $metaDesc = "Contact";
-    require_once __DIR__ . DIRECTORY_SEPARATOR . "header.php";
-    require_once __DIR__ . DIRECTORY_SEPARATOR . "formulaire.php";
+    require_once __DIR__ ."/header.php";
     ?>
     
     <main>
-
+        <?php 
+        require_once __DIR__ ."/core/formulaire.php";
+        ?>
         <form action="" method="POST" id="contact">
         <!-- <input type="hidden" name="formContact" value="formContact"> -->
                 <fieldset>
@@ -22,7 +23,7 @@
                         ?>
                         <div class="champs">
                             <label for="prenom">Prénom :</label>
-                            <input class="champs" type="text" id="prenom" name="prenom" placeholder="Ex : Jean*" />
+                            <input class="champs" type="text" id="prenom" name="prenom" placeholder="Ex : Jean*" required/>
                         </div>
                         <?php
                             if(isset($errors["prenom"])){
@@ -33,10 +34,20 @@
                             <label for="tel">Téléphone :</label>
                             <input class="champs" type="tel" id="tel" name="tel" placeholder="0475 65 65 65*" required/>
                         </div>
+                        <?php
+                            if(isset($errors["tel"])){
+                                echo "<div class='erreur'>".$errors["tel"]."</div>";
+                            }
+                        ?>
                         <div class="champs">
                             <label for="mail">Mail :</label>
                             <input class="champs" type="mail" id="mail" name="mail" placeholder="jean.dupuis@gmail.com*" required />
                         </div>
+                        <?php
+                            if(isset($errors["mail"])){
+                                echo "<div class='erreur'>".$errors["mail"]."</div>";
+                            }
+                        ?>
                     </div>
                 </fieldset>
                 <fieldset class="textarea">
@@ -49,6 +60,11 @@
                         placeholder="Votre question ici*"
                         required
                     ></textarea>
+                    <?php
+                            if(isset($errors["question"])){
+                                echo "<div class='erreur'>".$errors["question"]."</div>";
+                            }
+                        ?>
                 </fieldset>
                 <button type="submit">Envoyer</button>
             </form>
