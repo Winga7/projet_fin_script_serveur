@@ -1,6 +1,8 @@
 <?php
 $metaDesc = "Connexion";
 require_once __DIR__ . DIRECTORY_SEPARATOR . "header.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . "gestionconnexion.php";
+echo donnee();
 ?>
 <main id="connexion">
 	<div id="stars"></div>
@@ -21,13 +23,14 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "header.php";
 								<div class="card-front">
 									<div class="center-wrap">
 										<div class="section text-center">
+											<!-- partie connexion  -->
 											<h4 class="mb-4 pb-3">Connexion</h4>
 											<div class="form-group">
-												<input type="email" class="form-style" placeholder="Email" />
+												<input type="email" class="form-style" placeholder="Email" name="mail" />
 												<i class="input-icon uil uil-at"></i>
 											</div>
 											<div class="form-group mt-2">
-												<input type="password" class="form-style" placeholder="Password" />
+												<input type="password" class="form-style" placeholder="Password" name="mdp" />
 												<i class="input-icon uil uil-lock-alt"></i>
 											</div>
 											<a href="" class="btn mt-4">Connexion</a>
@@ -38,17 +41,18 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "header.php";
 								<div class="card-back">
 									<div class="center-wrap">
 										<div class="section text-center">
+											<!-- Partie Enregistrement -->
 											<h4 class="mb-3 pb-3">Enregistrement</h4>
 											<div class="form-group">
-												<input type="text" class="form-style" placeholder="Pseudo" />
+												<input type="text" class="form-style" placeholder="Pseudo" name="pseudo" />
 												<i class="input-icon uil uil-user"></i>
 											</div>
 											<div class="form-group mt-2">
-												<input type="email" class="form-style" placeholder="Email" />
+												<input type="email" class="form-style" placeholder="Email" name="mail" />
 												<i class="input-icon uil uil-at"></i>
 											</div>
 											<div class="form-group mt-2">
-												<input type="password" class="form-style" placeholder="Mot de passe" />
+												<input type="password" class="form-style" placeholder="Mot de passe" name="mdp" />
 												<i class="input-icon uil uil-lock-alt"></i>
 											</div>
 											<a href="" class="btn mt-4">Enregistrement</a>
@@ -83,5 +87,5 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "header.php";
 </main>
 
 <?php
-    require __DIR__ . DIRECTORY_SEPARATOR . "footer.php";
-    ?>
+require __DIR__ . DIRECTORY_SEPARATOR . "footer.php";
+?>

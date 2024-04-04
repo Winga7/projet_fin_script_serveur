@@ -29,8 +29,10 @@ function champvide($valeur){
     }
 }
 
-function champexistant($existant){
-
+function champexistant($valeur){
+    if (isset($valeur)){
+        return false;
+    }
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -44,16 +46,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     print_r($prenom.PHP_EOL);
 
     $errors = [];
+    $errors["nom"] = champexistant($nom);
+    $errors["nom"] = champvide($nom);
     $errors["nom"] = verifLongueur($nom, 2 , 40);
-    // $errors["nom"] = champvide($nom);
+    $errors["prenom"] = champexistant($nom);
+    $errors["prenom"] = champvide($prenom);
     $errors["prenom"] = verifLongueur($prenom, 2, 40);
-    // $errors["prenom"] = champvide($prenom);
+    $errors["tel"] = champexistant($nom);
+    $errors["tel"] = champvide($tel);
     $errors["tel"] = verifLongueur($tel, 10, 12);
-    // $errors["tel"] = champvide($tel);
+    $errors["mail"] = champexistant($nom);
+    $errors["mail"] = champvide($mail);
     $errors["mail"] = verifmail($mail);
-    // $errors["mail"] = champvide($mail);
+    $errors["question"] = champexistant($nom);
+    $errors["question"] = champvide($question);
     $errors["question"] = verifLongueur($question, 10, 500);
-    // $errors["question"] = champvide($question);
 
     print_r($errors);
 }
