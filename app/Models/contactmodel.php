@@ -3,18 +3,18 @@
 $prerequis = [
     "nom" => [
         "required" => true,
-        "maxLenght" => 40,
-        "minLenght" => 2
+        "maxLength" => 40,
+        "minLength" => 2
     ],
     "prenom" => [
         "required" => true,
-        "maxLenght" => 20,
-        "minLenght" => 2
+        "maxLength" => 20,
+        "minLength" => 2
     ],
     "tel" => [
         "required" => true,
-        "maxLenght" => 12,
-        "minLenght" => 10 
+        "maxLength" => 12,
+        "minLength" => 10
     ],
     "mail" => [
         "required" => true,
@@ -22,9 +22,7 @@ $prerequis = [
     ],
     "question" => [
         "required" => true,
-        "maxLenght" => 500,
-        "minLenght" => 10
+        "maxLength" => 500,
+        "minLength" => 10
     ]
 ];
-
-?>

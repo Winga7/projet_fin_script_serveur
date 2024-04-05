@@ -75,23 +75,28 @@ function donnee()
 // function inscriptions($pseudo,$email,$mdp)
 // {
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  try {
-    // Instancier la connexion à la base de données.
-    $pdo = connexion_DB();
-    $requete = "INSERT INTO utilisateurs (utiPseudo, utiMail, utiMotDePasse) VALUES (:pseudo, :mail,:mdp)";
 
-    // Préparer la requête SQL.
-    $stmt = $pdo->prepare($requete);
+  if ($_POST['typeForm'] === "inscription") {
+    try {
+      // Instancier la connexion à la base de données.
+      $pdo = connexion_DB();
+      $requete = "INSERT INTO utilisateurs (utiPseudo, utiMail, utiMotDePasse) VALUES (:pseudo, :mail,:mdp)";
 
-    // Lier les variables aux marqueurs :
-    $stmt->bindValue(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
-    $stmt->bindValue(':mail', $_POST['mail'], PDO::PARAM_STR);
-    $stmt->bindValue(':mdp', $_POST['mdp'], PDO::PARAM_STR);
+      // Préparer la requête SQL.
+      $stmt = $pdo->prepare($requete);
 
-    // Exécuter la requête.
-    $stmt->execute();
-  } catch (PDOException $e) {
-    gerer_exceptions($e);
+      // Lier les variables aux marqueurs :
+      $stmt->bindValue(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
+      $stmt->bindValue(':mail', $_POST['mail'], PDO::PARAM_STR);
+      $stmt->bindValue(':mdp', $_POST['mdp'], PDO::PARAM_STR);
+
+      // Exécuter la requête.
+      $stmt->execute();
+    } catch (PDOException $e) {
+      gerer_exceptions($e);
+    }
+  } else {
+    echo "pas inscription";
   }
 }
 // }
