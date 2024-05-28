@@ -18,9 +18,7 @@ function verifLongueur($valeur, $min, $max)
 
 function verifmail($mail)
 {
-  if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-    return "\n";
-  } else {
+  if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
     return "L'adresse mail '$mail' n'est pas valide!!!!!\n";
   }
 }
@@ -48,8 +46,14 @@ function verifChamps($value, $min, $max): array
   $errors[] = champexistant($valeurNettoyer);
   $errors[] = champvide($valeurNettoyer);
   $errors[] = verifLongueur($valeurNettoyer, $min, $max);
+
+  foreach ($errors as $err) {
+    if (is_string($err)) {
+      return $errors;
+    }
+  }
   // echo $errors;
-  return $errors;
+  return [];
 }
 
 function verifChampMail($value): array
@@ -62,7 +66,12 @@ function verifChampMail($value): array
   $errors[] = champvide($valeurNettoyer);
   $errors[] = verifmail($valeurNettoyer);
 
-  return $errors;
+  foreach ($errors as $err) {
+    if (is_string($err)) {
+      return $errors;
+    }
+  }
+  return [];
 }
 
 
