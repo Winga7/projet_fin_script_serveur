@@ -1,12 +1,11 @@
 <?php
 $metaDesc = "Contact";
-require_once __DIR__ . "/header.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Controllers" . DIRECTORY_SEPARATOR . "contactController.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . "header.php";
+
 ?>
 
 <main>
-    <?php
-    require_once __DIR__ . "/core/formulaire.php";
-    ?>
     <form action="" method="POST" id="contact">
         <!-- <input type="hidden" name="formContact" value="formContact"> -->
         <fieldset>

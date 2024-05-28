@@ -44,7 +44,7 @@ echo donnee();
 							<div class="center-wrap">
 								<div class="section text-center">
 									<!-- Partie Enregistrement -->
-									<form method="POST" action="">
+									<form id="sign" method="POST" action="">
 										<input type="hidden" value="enregistrement" name="typeForm">
 										<h4 class="mb-3 pb-3">Enregistrement</h4>
 										<div class="form-group">
