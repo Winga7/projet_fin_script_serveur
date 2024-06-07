@@ -32,9 +32,6 @@ function gerer_exceptions(PDOException $e): void
 
 function connexion_DB()
 {
-
-
-
   try {
     // Instancier une nouvelle connexion.
     $pdo = new PDO("mysql:host=" . getenv("NOMDUSERVEUR") . ";dbname=" . getenv("NOMBDD") . ";charset=utf8", getenv("NOMUTILISATEUR"), getenv("MOTDEPASSE"));

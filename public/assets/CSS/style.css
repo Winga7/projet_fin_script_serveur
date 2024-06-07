@@ -22,9 +22,9 @@ header {
 }
 header ul {
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
-	gap: 2em;
+	/* gap: 2em; */
 	list-style: none;
 	padding: 0px;
 }
@@ -40,22 +40,36 @@ header li a:focus {
 header li a:active {
 	color: red;
 }
+
+/* main */
+
 main {
 	width: 70%;
 	min-height: calc(100vh - 100px);
-	margin: 50px auto auto auto;
+	margin: 0px auto auto auto;
 	color: white;
 }
 h1 {
 	color: white;
 	text-align: center;
 }
+
+/* form */
+
 form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	color: white;
-	padding-top: 3em;
+	/* padding-top: 3em; */
+}
+input {
+	padding: 0.5em;
+	border-radius: 15px;
+	background-color: rgba(15, 14, 59, 0.712);
+	color: rgb(255, 255, 255);
+	margin-bottom: 1em;
+	font-size: 1.5em;
 }
 legend {
 	font-size: 2.5em;
@@ -69,7 +83,7 @@ fieldset {
 }
 fieldset .coordonnees div {
 	display: grid;
-	grid-template-columns: 0.5fr 1fr;
+	/* grid-template-columns: 0.5fr 1fr; */
 	padding: 0.4em;
 }
 .champs {
@@ -94,9 +108,12 @@ button {
 	border-radius: 15px;
 	background-color: rgba(15, 14, 59, 0.712);
 	color: rgb(255, 255, 255);
-	margin-bottom: 4em;
-	font-size: 2em;
+	/* margin-bottom: 4em;
+	font-size: 2em; */
 }
+
+/* footer */
+
 footer {
 	background-color: rgb(8, 11, 34);
 	display: flex;

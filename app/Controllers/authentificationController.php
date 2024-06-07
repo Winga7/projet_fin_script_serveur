@@ -9,10 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors["mail"] = verifChampMail($_POST["mail"]);
     $errors["mdp"] = verifChamps($_POST["mdp"], $prerequis["mdp"]["minLength"], $prerequis["mdp"]["maxLength"]);
     if (
-      empty($errors["pseudo"])
-      && empty($errors["mail"])
-      && empty($errors["mdp"])
+      empty($errors["pseudo"]) && empty($errors["mail"]) && empty($errors["mdp"])
     ) {
+      echo
       insertUtilisateur();
     } else {
       print_r($errors);
@@ -25,10 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors["mail"] = verifChampMail($_POST["mail"]);
     $errors["mdp"] = verifChamps($_POST["mdp"], $prerequis["mdp"]["minLength"], $prerequis["mdp"]["maxLength"]);
     if (
-      empty($errors["pseudo"])
-      && empty($errors["mail"])
+      empty($errors["mail"])
       && empty($errors["mdp"])
     ) {;
+      connexionDB(champsNettoyer($_POST["mail"]), champsNettoyer($_POST["mdp"]));
     } else {
       print_r($errors);
     }

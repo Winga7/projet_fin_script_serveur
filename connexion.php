@@ -4,7 +4,13 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "header.php";
 // require_once __DIR__ . DIRECTORY_SEPARATOR . "gestionconnexion.php";
 require_once __DIR__ . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Controllers" . DIRECTORY_SEPARATOR . "authentificationController.php";
 // echo donnee();
+
 ?>
+
+<head>
+	<link rel="stylesheet" href="/public/assets/CSS/styleform.css">
+</head>
+
 <main id="connexion">
 	<div id="stars"></div>
 	<div id="stars2"></div>
@@ -36,7 +42,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Cont
 											<i class="input-icon uil uil-lock-alt"></i>
 										</div>
 										<button type="submit" class="btn mt-4">Connexion</button>
-										<p class="mb-0 mt-4 text-center"><a href="" class="link">Mot de passe oublié?</a></p>
+										<!-- <p class="mb-0 mt-4 text-center"><a href="" class="link">Mot de passe oublié?</a></p> -->
 								</div>
 								</form>
 							</div>
