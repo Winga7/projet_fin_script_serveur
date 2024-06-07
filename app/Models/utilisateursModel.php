@@ -1,5 +1,7 @@
 <?php
 
+require_once dirname(__DIR__, 1) . DIRECTORY_SEPARATOR . "core" . DIRECTORY_SEPARATOR . "gestionBDD.php";
+
 $prerequis = [
     "pseudo" => [
         "required" => true,
@@ -16,37 +18,6 @@ $prerequis = [
         "minLength" => 6
     ]
 ];
-
-// Tenter d'établir une connexion à la base de données :
-function gerer_exceptions(PDOException $e): void
-{
-    // Limiter l'affichage des erreurs au mode "développement" pour éviter le risque de communiquer des données sensibles
-    // lorsqu'une erreur se produit en mode "production" (lorsque le site est en ligne) :
-    if (defined('DEV_MODE') && DEV_MODE === true) {
-        echo "Erreur d'exécution de requête : " . $e->getMessage() . PHP_EOL;
-    }
-}
-
-function connexion_DB()
-{
-
-    require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . "config" . DIRECTORY_SEPARATOR . "config.php";
-
-    try {
-        // Instancier une nouvelle connexion.
-        $pdo = new PDO("mysql:host=$nomDuServeur;dbname=$nomBDD;charset=utf8", $nomUtilisateur, $motDePasse);
-
-        // Définir le mode d'erreur sur "exception".
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        return $pdo;
-    }
-    // Capturer les exceptions en cas d'erreur de connexion :
-    catch (PDOException $e) {
-        // Afficher les potentielles erreurs rencontrées lors de la tentative de connexion à la base de données.
-        // Attention, les informations affichées ici pouvant être sensibles, cet affichage est uniquement destiné à la phase de développement.
-        echo "Erreur d'exécution de requête : " . $e . PHP_EOL;
-    }
-};
 
 function insertUtilisateur()
 {

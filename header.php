@@ -1,5 +1,7 @@
 <?php
-define('BASE_URL', "");
+
+require_once dirname(__DIR__, 1) . DIRECTORY_SEPARATOR . "config" . DIRECTORY_SEPARATOR . "config.php";
+
 
 function Navigationint()
 {
