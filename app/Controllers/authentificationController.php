@@ -19,3 +19,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if ($_POST["typeForm"] == "connexion") {
+    $errors["mail"] = verifChampMail($_POST["mail"]);
+    $errors["mdp"] = verifChamps($_POST["mdp"], $prerequis["mdp"]["minLength"], $prerequis["mdp"]["maxLength"]);
+    if (
+      empty($errors["pseudo"])
+      && empty($errors["mail"])
+      && empty($errors["mdp"])
+    ) {;
+    } else {
+      print_r($errors);
+    }
+  }
+}

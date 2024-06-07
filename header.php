@@ -1,5 +1,5 @@
 <?php
-define('BASE_URL', "/projet_fin_script_serveur");
+define('BASE_URL', "");
 
 function Navigationint()
 {

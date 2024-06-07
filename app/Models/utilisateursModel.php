@@ -30,10 +30,7 @@ function gerer_exceptions(PDOException $e): void
 function connexion_DB()
 {
 
-    $nomDuServeur = "localhost";
-    $nomUtilisateur = "root";
-    $motDePasse = "";
-    $nomBDD = "ifosup_chri";
+    require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . "config" . DIRECTORY_SEPARATOR . "config.php";
 
     try {
         // Instancier une nouvelle connexion.
