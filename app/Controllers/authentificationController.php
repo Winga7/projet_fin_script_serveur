@@ -12,13 +12,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (
       empty($errors["pseudo"]) && empty($errors["mail"]) && empty($errors["mdp"])
     ) {
-      echo
+      // echo
       insertUtilisateur();
     } else {
       print_r($errors);
     }
   }
 }
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($_POST["typeForm"] == "connexion") {
@@ -32,13 +33,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       empty($errors["mail"])
       && empty($errors["mdp"])
     ) {
-      if (connexionDB($email, $mdp)) {
+      $utilisateur = connexionDB($email, $mdp);
+      if ($utilisateur) {
+        // Stocker les informations de l'utilisateur dans la session
+        connecter_uti("utilisateur", $utilisateur);
         // $_SESSION["mail"] = connexion_DB($email, $mdp);
-        session_start();
-        connecter_uti("cookie", connexionDB($email, $mdp));
 
         echo '
-<pre>' . print_r(uti_enligne("cookie"), true) . '</pre>';
+<pre>' . print_r(uti_enligne("utilisateur"), true) . '</pre>';
 ?>
         <!-- <script type="text/javascript">
           setTimeout(function() {
