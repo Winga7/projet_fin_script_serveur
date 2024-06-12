@@ -9,4 +9,5 @@ echo '
   <h1>bonjour <?= uti_enligne("utilisateur")['uti_pseudo'] ?> , <?= uti_enligne("utilisateur")["uti_email"] ?></h1>
   <form action="" method="post">
     <button type="submit" name="deco" value="deconnection">Déconnexion</button>
+  </form>
 </main>
