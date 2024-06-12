@@ -7,7 +7,8 @@ echo '
 <pre>' . print_r(uti_enligne("cookie"), true) . '</pre>';
 
 ?>
-
-<h1>bonjour <?= uti_enligne("cookie")['uti_pseudo'] ?> , <?= uti_enligne("cookie")["uti_email"] ?></h1>
-<form action="" method="post">
-  <button type="submit" name="deco" value="deconnection">
+<main>
+  <h1>bonjour <?= uti_enligne("cookie")['uti_pseudo'] ?> , <?= uti_enligne("cookie")["uti_email"] ?></h1>
+  <form action="" method="post">
+    <button type="submit" name="deco" value="deconnection">Déconnexion</button>
+</main>
