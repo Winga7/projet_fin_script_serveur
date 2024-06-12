@@ -48,14 +48,14 @@ function connexionDB($email, $mdp)
       // Instancier la connexion à la base de données.
       $pdo = connexion_DB();
 
-      $requete = "SELECT * FROM utilisateurs WHERE uti_email = :pseudo";
+      $requete = "SELECT * FROM utilisateurs WHERE uti_email = :email";
 
       // Préparer la requête SQL.
       $stmt = $pdo->prepare($requete);
 
       // Lier les variables aux marqueurs :
 
-      $stmt->bindValue(':pseudo', $email, PDO::PARAM_STR);
+      $stmt->bindValue(':email', $email, PDO::PARAM_STR);
 
 
       // $stmt->bindValue(':mdp', $args["code"], PDO::PARAM_STR);
@@ -74,20 +74,19 @@ function connexionDB($email, $mdp)
       //Permet de verifier si: utilisateur a une donnée et qu'elle correspond au mdp haché fourni
       if (isset($utilisateur) && !empty($utilisateur) && $utilisateur['uti_motdepasse'] === $mdp) {
         // echo '<pre>' . print_r($utilisateur, true) . '</pre>';
-        echo "ton nom : " . $utilisateur["uti_pseudo"];
+        return $utilisateur;
 
         // variable de session avec  $utilisateu pour mettre les donnée de dedans
-        header("Location: profil.php");
-        exit();
-
 
         // $phrases = "ton nom : ";
         // $phrases .= $utilisateur["uti_pseudo"];
         // echo $phrases;
       } else {
-        echo "Pas inscrit";
+
+        return false;
       }
     }
   }
 }
 // password_verify($args["code"], $utilisateur['uti_motdepasse'])
+//

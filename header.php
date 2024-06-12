@@ -9,6 +9,7 @@ function Navigationint()
     "/index.php" => "Accueil",
     "/contact.php" => "Contact",
     "/connexion.php" => "Connexion",
+    "/profil.php" => "Profil",
   ];
   foreach ($pages as $page => $label) {
     $class = ($_SERVER['REQUEST_URI'] == $page) ? 'active' : '';
