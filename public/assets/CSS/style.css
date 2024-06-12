@@ -53,6 +53,32 @@ h1 {
 	color: white;
 	text-align: center;
 }
+p {
+	text-align: center;
+	font-size: 1.5em;
+}
+#galery {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+	grid-auto-rows: auto;
+	grid-gap: 1em;
+}
+#galery li {
+	list-style: none;
+	display: flex;
+}
+#galery li img {
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+}
+
+/* Media Query pour les écrans de taille inférieure à 600px */
+@media screen and (max-width: 600px) {
+	#galery {
+		grid-template-columns: 1fr;
+	}
+}
 
 /* form */
 
