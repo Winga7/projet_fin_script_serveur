@@ -45,6 +45,7 @@ function connexionDB($email, $mdp)
 {
   if ($_SERVER["REQUEST_METHOD"] === "POST") {
     try {
+      echo '<pre>' . print_r($mdp, true) . '</pre>';
       // Instancier la connexion à la base de données.
       $pdo = connexion_DB();
 
@@ -70,10 +71,10 @@ function connexionDB($email, $mdp)
       // Récupérer l'utilisateur issu de la requête DE LA DB.
       $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
 
+      echo '<pre>' . print_r($utilisateur, true) . '</pre>';
 
       //Permet de verifier si: utilisateur a une donnée et qu'elle correspond au mdp haché fourni
       if (isset($utilisateur) && !empty($utilisateur) && $utilisateur['uti_motdepasse'] === $mdp) {
-        // echo '<pre>' . print_r($utilisateur, true) . '</pre>';
         return $utilisateur;
 
         // variable de session avec  $utilisateu pour mettre les donnée de dedans

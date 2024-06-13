@@ -34,17 +34,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       && empty($errors["mdp"])
     ) {
       $utilisateur = connexionDB($email, $mdp);
+      echo '<pre>' . print_r($utilisateur, true) . '</pre>';
       if ($utilisateur) {
         // Stocker les informations de l'utilisateur dans la session
         connecter_uti("utilisateur", $utilisateur);
         // $_SESSION["mail"] = connexion_DB($email, $mdp);
+        header('Location: ' . BASE_URL . 'profil.php');
 
-        echo '
-<pre>' . print_r(uti_enligne("utilisateur"), true) . '</pre>';
 ?>
         <!-- <script type="text/javascript">
           setTimeout(function() {
-            window.location.href = "https://space.winga7.be/profil.php";
+            window.location.href = BASE_URL. DS . "profil.php"; 
           }, 1000); // Redirection après 1 secondes
         </script> -->
 <?php
