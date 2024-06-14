@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . "Models" . DIRECTORY_SEPARATOR . "utilisateursModel.php";
 require_once dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "core" . DIRECTORY_SEPARATOR . "formulaire.php";
-require_once dirname(__DIR__, 2) .  DIRECTORY_SEPARATOR .  "session.php";
+
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
