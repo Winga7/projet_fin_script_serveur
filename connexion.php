@@ -1,8 +1,8 @@
 <?php
 $metaDesc = "Connexion";
+require_once __DIR__ . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Controllers" . DIRECTORY_SEPARATOR . "authentificationController.php";
 require_once __DIR__ . DIRECTORY_SEPARATOR . "header.php";
 // require_once __DIR__ . DIRECTORY_SEPARATOR . "gestionconnexion.php";
-require_once __DIR__ . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Controllers" . DIRECTORY_SEPARATOR . "authentificationController.php";
 // echo donnee();
 // echo '<pre>' . print_r($_SESSION, true) . '</pre>';
 

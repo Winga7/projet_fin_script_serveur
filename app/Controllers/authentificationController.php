@@ -39,16 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Stocker les informations de l'utilisateur dans la session
         connecter_uti("utilisateur", $utilisateur);
         // $_SESSION["mail"] = connexion_DB($email, $mdp);
-        header('Location: ' . BASE_URL . 'profil.php');
-
-?>
-        <script type="text/javascript">
-          setTimeout(function() {
-            window.location.href = BASE_URL.DS.
-            'profil.php';
-          }, 1000); // Redirection après 1 secondes
-        </script>
-<?php
+        header('Location: ' . BASE_URL . DS . 'profil.php');
       }
     } else {
       echo "Pas inscrit ou fomulaire mal rempli";
