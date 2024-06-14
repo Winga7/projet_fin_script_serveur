@@ -5,12 +5,25 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "config" . DIRECTORY_SEPARATOR . "c
 
 function Navigationint()
 {
-  $pages = [
-    "/index.php" => "Accueil",
-    "/contact.php" => "Contact",
-    "/connexion.php" => "Connexion",
-    "/profil.php" => "Profil",
-  ];
+  if (isset($_SESSION["utilisateur"])) {
+    $pages = [
+      "/index.php" => "Accueil",
+      "/contact.php" => "Contact",
+      "/profil.php" => "Profil",
+    ];
+  } else {
+    $pages = [
+      "/index.php" => "Accueil",
+      "/contact.php" => "Contact",
+      "/connexion.php" => "Connexion",
+    ];
+  }
+  // $pages = [
+  //   "/index.php" => "Accueil",
+  //   "/contact.php" => "Contact",
+  //   "/connexion.php" => "Connexion",
+  //   "/profil.php" => "Profil",
+  // ];
   foreach ($pages as $page => $label) {
     $class = ($_SERVER['REQUEST_URI'] == $page) ? 'active' : '';
     echo '<li><a href="' . $page . '" class="' . $class . '">' . $label . '</a></li>';
