@@ -140,7 +140,7 @@ button {
 
 /* footer */
 
-footer {
+#footer {
 	background-color: rgb(8, 11, 34);
 	display: flex;
 	justify-content: center;
