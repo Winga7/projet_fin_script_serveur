@@ -44,7 +44,7 @@ header li a:active {
 /* main */
 
 main {
-	width: 80%;
+	width: 75%;
 	min-height: calc(100vh - 100px);
 	margin: 0px auto auto auto;
 	color: white;

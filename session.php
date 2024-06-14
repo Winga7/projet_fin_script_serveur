@@ -23,8 +23,8 @@ session_start();
 
 function connecter_uti($nom, $donnee)
 {
-  echo '<pre>' . print_r($nom, true) . '</pre>';
-  echo '<pre>' . print_r($donnee, true) . '</pre>';
+  // echo '<pre>' . print_r($nom, true) . '</pre>';
+  // echo '<pre>' . print_r($donnee, true) . '</pre>';
   //Création de variables de session
   $_SESSION[$nom] = $donnee;
 }
