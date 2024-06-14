@@ -8,6 +8,9 @@ require_once dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . "core" . DIRECTORY_SEPA
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($_POST["typeForm"] == "enregistrement") {
+    $pseudo =  champsNettoyer($_POST["pseudo"]);
+    $email =  champsNettoyer($_POST["mail"]);
+    $mdp = champsNettoyer($_POST["mdp"]);
     $errors["pseudo"] = verifChamps($_POST["pseudo"], $prerequis["pseudo"]["minLength"], $prerequis["pseudo"]["maxLength"]);
     $errors["mail"] = verifChampMail($_POST["mail"]);
     $errors["mdp"] = verifChamps($_POST["mdp"], $prerequis["mdp"]["minLength"], $prerequis["mdp"]["maxLength"]);
@@ -15,9 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       empty($errors["pseudo"]) && empty($errors["mail"]) && empty($errors["mdp"])
     ) {
       // echo
-      insertUtilisateur();
+      //si tu n'as pas d'erreurs tu peux executer ta requete
+      insertUtilisateur($pseudo, $email, $mdp);
+      envoiMail($pseudo, $email);
     } else {
-      print_r($errors);
+      // print_r($errors);
     }
   }
 }

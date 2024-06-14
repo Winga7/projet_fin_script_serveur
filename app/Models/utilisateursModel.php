@@ -19,7 +19,13 @@ $prerequis = [
   ]
 ];
 
-function insertUtilisateur()
+
+function mdphackage($champNettoyer)
+{
+  return password_hash($champNettoyer, PASSWORD_DEFAULT);
+}
+
+function insertUtilisateur($pseudo, $mail, $mdp)
 {
   try {
     // Instancier la connexion à la base de données.
@@ -30,9 +36,9 @@ function insertUtilisateur()
     $stmt = $pdo->prepare($requete);
 
     // Lier les variables aux marqueurs :
-    $stmt->bindValue(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
-    $stmt->bindValue(':mail', $_POST['mail'], PDO::PARAM_STR);
-    $stmt->bindValue(':mdp', $_POST['mdp'], PDO::PARAM_STR);
+    $stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+    $stmt->bindValue(':mail', $mail, PDO::PARAM_STR);
+    $stmt->bindValue(':mdp', mdphackage($mdp), PDO::PARAM_STR);
 
     // Exécuter la requête.
     $stmt->execute();
@@ -74,7 +80,7 @@ function connexionDB($email, $mdp)
       // echo '<pre>' . print_r($utilisateur, true) . '</pre>';
 
       //Permet de verifier si: utilisateur a une donnée et qu'elle correspond au mdp haché fourni
-      if (isset($utilisateur) && !empty($utilisateur) && $utilisateur['uti_motdepasse'] === $mdp) {
+      if (isset($utilisateur) && !empty($utilisateur) && password_verify($mdp, $utilisateur['uti_motdepasse'])) {
         return $utilisateur;
 
         // variable de session avec  $utilisateu pour mettre les donnée de dedans
@@ -89,5 +95,41 @@ function connexionDB($email, $mdp)
     }
   }
 }
+
+function envoiMail($pseudo, $email)
+{
+  // Expéditeur de l'email.
+  $expediteur = "Winga <contact@winga7.be>";
+
+  // Destinataire de l'email.
+  $destinataire = $pseudo . "<" . $email . ">";
+
+  // Sujet de l'email.
+  $sujet = "Bienvenue sur mon premier site dynamique";
+
+  // Configurer les entêtes.
+  $entetes = [
+    "From" => $expediteur,
+    "MIME-Version" => "1.0",
+    "Content-Type" => "text/html; charset=\"UTF-8\"",
+    "Content-Transfer-Encoding" => "quoted-printable"
+  ];
+
+  // Corps du message au format HTML.
+  $message = "<html><body>";
+  $message .= "<p>Bonjour, Bonsoir,</p>";
+  $message .= "<p>Je te souhaite la bienvenue sur mon site</p>";
+  $message .= "<p>A bientôt,</p>";
+  $message .= "<p>Winga</p>";
+  $message .= "</body></html>";
+
+  // Tentative d'envoi du mail :
+  if (mail($destinataire, $sujet, $message, $entetes)) {
+    echo "Le courriel a été envoyé avec succès.";
+  } else {
+    echo "L'envoi du courriel a échoué.";
+  }
+}
+
 // password_verify($args["code"], $utilisateur['uti_motdepasse'])
 //
