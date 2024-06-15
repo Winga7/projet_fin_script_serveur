@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Stocker les informations de l'utilisateur dans la session
       connecter_uti("utilisateur", $utilisateur);
       $message["pseudo"] = "Votre pseudo a été mis à jour";
+    }
   }
 }
 
