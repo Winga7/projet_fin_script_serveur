@@ -62,6 +62,11 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "header.php";
         ?>
       </p>
       <button type="submit" name="changepseudo">Changer Pseudo</button>
+      <p class="confirmations">
+        <?=
+        ($message["pseudo"]) ?? "";
+        ?>
+      </p>
     </form>
 
     <form id="formulairerenvoie" method="post" action="">
@@ -79,12 +84,12 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "header.php";
         ?>
       </p>
       <button type="submit" name="codeperdu">Changer Email</button>
+      <p class="confirmations">
+        <?=
+        ($message["mail"]) ?? "";
+        ?>
+      </p>
     </form>
-
-
-
-
-
     <form id="formulairerenvoie" method="post" action="">
 
       <h3>Changement du mot de passe</h3>
@@ -96,7 +101,13 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "header.php";
       <input type="password" name="mdp" id="mdp" minlength="2" maxlength="72" placeholder="Votre mot de passe ">
 
       <button type="submit" name="mdpchanger">Changer Mot de Passe</button>
+      <p class="confirmations">
+        <?=
+        ($message["mdp"]) ?? "";
+        ?>
+      </p>
     </form>
+
 
   </fieldset>
   <div id="fermeture">

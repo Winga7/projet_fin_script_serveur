@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // echo '<pre>' . print_r($utilisateur, true) . '</pre>';
       // Stocker les informations de l'utilisateur dans la session
       connecter_uti("utilisateur", $utilisateur);
-    }
+      $message["pseudo"] = "Votre pseudo a été mis à jour";
   }
 }
 
@@ -40,17 +40,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // echo '<pre>' . print_r($utilisateur, true) . '</pre>';
       // Stocker les informations de l'utilisateur dans la session
       connecter_uti("utilisateur", $utilisateur);
+      $message["mail"] = "Votre email a été mis à jour";
     }
   }
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($_POST["profil"] == "mdp") {
-    echo $_POST["mdp"];
     $mdp =  champsNettoyer($_POST["mdp"]);
     $errors["mdp"] = verifChamps($_POST["mdp"], $prerequis["mdp"]["minLength"], $prerequis["mdp"]["maxLength"]);
     if (empty($errors["mdp"])) {
       miseAJourUtilisateur(mdphackage($mdp), "uti_motdepasse", $_SESSION["utilisateur"]['uti_id']);
+      $message["mdp"] = "Votre mot de passe a été mis à jour";
     }
   } else {
     $errors["mdp"] = "Le mot de passe n'a pas été fourni.";
