@@ -46,6 +46,27 @@ function insertUtilisateur($pseudo, $mail, $mdp)
     gerer_exceptions($e);
   }
 }
+// miseAJourUtilisateur(mdphachage($champnettoyermdp),uti_mdp, $session["utilisateur"]['uti_id'])
+function miseAJourUtilisateur($donnee, $champs, $id)
+{
+  try {
+    // Instancier la connexion à la base de données.
+    $pdo = connexion_DB();
+    $requete = "UPDATE utilisateurs SET $champs = :nouveauidentifiant WHERE uti_id = :id";
+
+    // Préparer la requête SQL.
+    $stmt = $pdo->prepare($requete);
+
+    // Lier les variables aux marqueurs :
+    $stmt->bindValue(':nouveauidentifiant', $donnee, PDO::PARAM_STR);
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+
+    // Exécuter la requête.
+    $stmt->execute();
+  } catch (PDOException $e) {
+    gerer_exceptions($e);
+  }
+}
 
 function connexionDB($email, $mdp)
 {

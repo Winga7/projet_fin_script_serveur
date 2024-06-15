@@ -53,3 +53,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
 }
+
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//   if ($_POST["profil"] == "connexion") {
+
+//     $pseudo =  champsNettoyer($_POST["pseudo"]);
+//     $errors["pseudo"] = verifChamps($_POST["pseudo"], $prerequis["pseudo"]["minLength"], $prerequis["pseudo"]["maxLength"]);
+
+//     if (
+//       empty($errors["pseudo"])
+//     ) {
+//       miseAJourUtilisateur($pseudo, "uti_pseudo", $_SESSION["utilisateur"]['uti_id']);
+//     }
+//   }
+// }

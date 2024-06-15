@@ -138,6 +138,28 @@ button {
 	font-size: 2em; */
 }
 
+/* page profil */
+
+#profil {
+	min-width: 414px;
+}
+
+#chgdonnees {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-around;
+	color: white;
+	min-width: 414px;
+	gap: 1em;
+	/* padding-top: 3em; */
+}
+#fermeture {
+	display: flex;
+	justify-content: space-around;
+}
+
 /* footer */
 
 #footer {
