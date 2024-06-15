@@ -41,8 +41,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Cont
   <p>Votre adresse mail est <?= $utilisateur["uti_email"] ?></p>
   <p>Bonne visite sur le site</p>
   <p>Vous pouvez changer votre profil, votre email ou votre mot de passe</p>
-  <p>Vous pouvez aussi vous déconnecter</p>
-  <p>Vous pouvez également supprimer votre compte</p>
+  <p>Vous pouvez aussi vous déconnecter, si vous souhaitez supprimez votre compte c'est possible (mais nous serons triste)</p>
   <p>Veuillez Déco/Reco pour mettre a jour vos données sur la page profile</p>
 
 
