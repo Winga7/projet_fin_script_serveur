@@ -63,14 +63,18 @@ p {
 	grid-auto-rows: auto;
 	grid-gap: 1em;
 }
-#galery li {
+#galery li a {
 	list-style: none;
 	display: flex;
 }
-#galery li img {
+#galery li a img {
 	width: 100%;
 	height: 300px;
 	object-fit: cover;
+	box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+#galery li a img:hover {
+	transform: scale(1.5);
 }
 
 /* Media Query pour les écrans de taille inférieure à 600px */
@@ -165,10 +169,11 @@ button {
 #footer {
 	background-color: rgb(8, 11, 34);
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	height: 50px;
+	height: auto;
 	color: white;
 }
 span {
