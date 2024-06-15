@@ -14,12 +14,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       empty($errors["pseudo"])
     ) {
       miseAJourUtilisateur($pseudo, "uti_pseudo", $_SESSION["utilisateur"]['uti_id']);
+      $id = uti_enligne("utilisateur")["uti_id"];
+      $utilisateur = recupdonneutilisateur($id);
+      // echo '<pre>' . print_r($utilisateur, true) . '</pre>';
+      // Stocker les informations de l'utilisateur dans la session
+      connecter_uti("utilisateur", $utilisateur);
     }
   }
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if ($_POST["profil"] == "email") {
+  if ($_POST["profil"] == "mail") {
     $mail =  champsNettoyer($_POST["email"]);
     $errors["email"] = verifChampMail($_POST["email"]);
     if (empty($errors["email"])) {
@@ -29,20 +34,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       } else {
         error_log("Utilisateur mis à jour avec succès");
       }
+      miseAJourUtilisateur($mail, "uti_email", $_SESSION["utilisateur"]['uti_id']);
+      $id = uti_enligne("utilisateur")["uti_id"];
+      $utilisateur = recupdonneutilisateur($id);
+      // echo '<pre>' . print_r($utilisateur, true) . '</pre>';
+      // Stocker les informations de l'utilisateur dans la session
+      connecter_uti("utilisateur", $utilisateur);
     }
   }
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($_POST["profil"] == "mdp") {
-    if (isset($_POST["mdp"])) {
-      $mdp =  champsNettoyer($_POST["mdp"]);
-      $errors["mdp"] = verifChamps($_POST["mdp"], $prerequis["mdp"]["minLength"], $prerequis["mdp"]["maxLength"]);
-      if (empty($errors["mdp"])) {
-        miseAJourUtilisateur(mdphackage($mdp), "uti_motdepasse", $_SESSION["utilisateur"]['uti_id']);
-      }
-    } else {
-      $errors["mdp"] = "Le mot de passe n'a pas été fourni.";
+    echo $_POST["mdp"];
+    $mdp =  champsNettoyer($_POST["mdp"]);
+    $errors["mdp"] = verifChamps($_POST["mdp"], $prerequis["mdp"]["minLength"], $prerequis["mdp"]["maxLength"]);
+    if (empty($errors["mdp"])) {
+      miseAJourUtilisateur(mdphackage($mdp), "uti_motdepasse", $_SESSION["utilisateur"]['uti_id']);
     }
+  } else {
+    $errors["mdp"] = "Le mot de passe n'a pas été fourni.";
   }
 }

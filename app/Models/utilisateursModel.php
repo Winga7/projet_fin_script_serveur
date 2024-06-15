@@ -154,3 +154,51 @@ function envoiMail($pseudo, $email)
 
 // password_verify($args["code"], $utilisateur['uti_motdepasse'])
 //
+function recupdonneutilisateur($id)
+{
+  if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    try {
+      // echo '<pre>' . print_r($mdp, true) . '</pre>';
+      // Instancier la connexion à la base de données.
+      $pdo = connexion_DB();
+
+      $requete = "SELECT * FROM utilisateurs WHERE uti_id = :id";
+
+      // Préparer la requête SQL.
+      $stmt = $pdo->prepare($requete);
+
+      // Lier les variables aux marqueurs :
+
+      $stmt->bindValue(':id', $id, PDO::PARAM_STR);
+
+
+      // $stmt->bindValue(':mdp', $args["code"], PDO::PARAM_STR);
+      // Exécuter la requête.
+      $estValide = $stmt->execute();
+    } catch (PDOException $e) {
+      gerer_exceptions($e);
+    }
+    if (isset($estValide) && $estValide !== false) {
+      // $estvalide sera toujour true sauf s' il y une erreur dans le requete sql( exemple un nom de table mal ecrit)
+
+      // Récupérer l'utilisateur issu de la requête DE LA DB.
+      $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
+
+      // echo '<pre>' . print_r($utilisateur, true) . '</pre>';
+
+      //Permet de verifier si: utilisateur a une donnée et qu'elle correspond au mdp haché fourni
+      if (isset($utilisateur) && !empty($utilisateur)) {
+        return $utilisateur;
+
+        // variable de session avec  $utilisateu pour mettre les donnée de dedans
+
+        // $phrases = "ton nom : ";
+        // $phrases .= $utilisateur["uti_pseudo"];
+        // echo $phrases;
+      } else {
+
+        return false;
+      }
+    }
+  }
+}

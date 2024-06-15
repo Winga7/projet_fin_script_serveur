@@ -30,8 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   }
 }
 $metaDesc = "Profile";
-require_once __DIR__ . DIRECTORY_SEPARATOR . "header.php";
 require_once __DIR__ . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Controllers" . DIRECTORY_SEPARATOR . "changeprofil.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . "header.php";
 // require_once __DIR__ . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Controllers" . DIRECTORY_SEPARATOR . "authentificationController.php";
 
 
@@ -48,6 +48,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Cont
 
   <fieldset id="chgdonnees">
     <legend>Changement de données</legend>
+
     <form id="formulaire" action="" method="post">
       <h3>Changement du nom de profil</h3>
       <input type="hidden" name="profil" value="pseudo">
@@ -81,6 +82,10 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Cont
       <button type="submit" name="codeperdu">Changer Email</button>
     </form>
 
+
+
+
+
     <form id="formulairerenvoie" method="post" action="">
 
       <h3>Changement du mot de passe</h3>
@@ -88,8 +93,9 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Cont
       <input type="hidden" name="profil" value="mdp">
 
       <label for="mdp">Votre mdp :</label>
-      <input type="password" name="Code" id="mdp" minlength="2" maxlength="72" placeholder="Votre mot de passe ">
-      <p class="erreur"><?php echo $args["erreurs"]["Code"] ?? '' ?></p>
+
+      <input type="password" name="mdp" id="mdp" minlength="2" maxlength="72" placeholder="Votre mot de passe ">
+
       <button type="submit" name="mdpchanger">Changer Mot de Passe</button>
     </form>
 
@@ -98,6 +104,11 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . "app" . DIRECTORY_SEPARATOR . "Cont
     <form action="" method="post">
       <button type="submit" name="deco" value="deconnection">Déconnexion</button>
     </form>
+
+
+
+
+
 
     <form action="" method="post">
       <button type="submit" name="supprimer" value="supprimer">Supprimer mon compte</button>
